@@ -1,6 +1,8 @@
 micronaut:
   application:
     name: lanchesPub
+  cors:
+    enabled: true
 #cassandra:
 #  default:
 #    basic:

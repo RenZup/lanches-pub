@@ -7,6 +7,7 @@ import io.micronaut.http.HttpResponse
 import io.micronaut.http.MutableHttpResponse
 import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
+import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post
 import io.micronaut.validation.Validated
 import org.slf4j.LoggerFactory
@@ -20,7 +21,7 @@ class LanchesController(private val lancheServicePort: EntrypointServicePort) {
 
     @Post
     fun salvaLanche(@Body @Valid form: LancheRequestDto): MutableHttpResponse<LancheRequestDto>? {
-        logger.info("\nValores Receboidos do CLient : $form")
+        logger.info("\nValores Recebidos do Client : $form")
         lancheServicePort.salvarLanche(Convert.lancheRequestDtoToLanche(form))
         return HttpResponse.created(form)
     }
