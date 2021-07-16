@@ -1,12 +1,11 @@
 package br.com.lanches.pub.infrastructure.model
 
-import io.micronaut.core.annotation.Introspected
-import java.util.*
-
-@Introspected
 data class LancheEvent(
-    var nome: String,
-    var ingredientes: String,
-    var preco: Double,
-    val id: UUID? = null
-)
+    val lanche: LancheDto,
+    val operacao: Operacao
+){
+}
+
+enum class Operacao(){
+    CADASTRAR
+}
