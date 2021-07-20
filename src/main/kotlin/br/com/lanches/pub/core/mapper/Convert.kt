@@ -11,8 +11,8 @@ class Convert {
         fun lancheRequestDtoToLanche(dto: LancheRequestDto)=
             Lanche(dto.nome,dto.ingredientes,dto.preco)
 
-        fun lancheToLancheEvent(lanche: Lanche) =
-            LancheEvent(LancheDto(lanche.ingredientes,lanche.nome,lanche.preco),Operacao.CADASTRAR)
+        fun lancheToLancheEvent(lanche: Lanche,operacao: Operacao) =
+            LancheEvent(LancheDto(lanche.ingredientes,lanche.nome,lanche.preco),operacao)
 
     }
 

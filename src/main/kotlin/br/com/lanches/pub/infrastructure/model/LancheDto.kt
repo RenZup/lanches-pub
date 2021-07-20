@@ -8,5 +8,5 @@ data class LancheDto(
     var nome: String,
     var ingredientes: String,
     var preco: Double,
-    val id: UUID? = null
+    var id: UUID? = null
 )

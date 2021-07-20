@@ -7,5 +7,5 @@ data class LancheEvent(
 }
 
 enum class Operacao(){
-    CADASTRAR
+    CADASTRAR, ATUALIZAR
 }
