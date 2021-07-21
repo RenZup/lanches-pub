@@ -30,6 +30,12 @@ class LanchesController(private val lancheServicePort: EntrypointServicePort) {
         lancheServicePort.atualizarLanche(id,Convert.lancheRequestDtoToLanche(form))
         return HttpResponse.ok()
     }
+    @Delete("/{id}")
+    fun deletarLanche(@PathVariable id: UUID): MutableHttpResponse<Unit>{
+        logger.info("\nTentando deletar o id $id")
+        lancheServicePort.deletarLanche(id)
+        return HttpResponse.ok()
+    }
 
 
 }

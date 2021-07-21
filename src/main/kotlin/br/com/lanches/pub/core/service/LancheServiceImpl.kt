@@ -4,6 +4,8 @@ import br.com.lanches.pub.core.mapper.Convert
 import br.com.lanches.pub.core.model.Lanche
 import br.com.lanches.pub.core.port.EntrypointServicePort
 import br.com.lanches.pub.core.port.InfrastructureServicePort
+import br.com.lanches.pub.infrastructure.model.LancheDto
+import br.com.lanches.pub.infrastructure.model.LancheEvent
 import br.com.lanches.pub.infrastructure.model.Operacao
 import org.slf4j.LoggerFactory
 import java.util.*
@@ -23,6 +25,12 @@ class LancheServiceImpl(val infraServicePort: InfrastructureServicePort): Entryp
         logger.info("\ncore/service: $lancheAtualizado, $idLanche")
         val lancheEvent = Convert.lancheToLancheEvent(lancheAtualizado,Operacao.ATUALIZAR)
         lancheEvent.lanche.id = idLanche
+        infraServicePort.enviarLanche(lancheEvent)
+    }
+
+    override fun deletarLanche(idLanche: UUID) {
+        logger.info("\ncore/service: $idLanche")
+        val lancheEvent = LancheEvent(LancheDto("DELETAR","DELETAR",0.0,idLanche),Operacao.DELETAR)
         infraServicePort.enviarLanche(lancheEvent)
     }
 

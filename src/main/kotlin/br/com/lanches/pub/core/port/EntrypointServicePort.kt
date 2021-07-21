@@ -8,4 +8,5 @@ import javax.inject.Singleton
 interface EntrypointServicePort {
     fun salvarLanche(lanche: Lanche)
     fun atualizarLanche(idLanche: UUID, lancheAtualizado: Lanche)
+    fun deletarLanche(idLanche: UUID)
 }
