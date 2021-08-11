@@ -18,7 +18,7 @@ class LanchesController(private val lancheServicePort: EntrypointServicePort) {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     @Post
-    fun salvaLanche(@Body @Valid form: LancheRequestDto): MutableHttpResponse<LancheRequestDto>? {
+    fun salvaLanche(@Body @Valid form: LancheRequestDto): MutableHttpResponse<LancheRequestDto> {
         logger.info("\nValores Receboidos do Client : $form")
         lancheServicePort.salvarLanche(Convert.lancheRequestDtoToLanche(form))
         return HttpResponse.created(form)

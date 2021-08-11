@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory
 import javax.inject.Singleton
 
 @Singleton
-class LancheService(val lancheClient: LancheClient): InfrastructureServicePort {
+class NatsService(val lancheClient: LancheClient): InfrastructureServicePort {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 
